@@ -1,0 +1,146 @@
+/* ====== Slide pertama (intro) ====== */
+
+.intro-slide {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #000000, #1a1a1a);
+  text-align: center;
+  transition: opacity 1s ease;
+  z-index: 3;
+}
+
+.intro-slide h1 {
+  color: #ffb6c1;
+  font-size: 28px;
+}
+
+.intro-slide p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+button {
+  background: #ff7fa8;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff4f87;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ====== Slide puisi (dari kode kamu sebelumnya) ====== */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.heart-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  bottom: -10px;
+  font-size: 22px;
+  animation: floatUp linear forwards;
+  opacity: 0.9;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.poem-container {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 80px auto;
+  padding: 40px 25px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+.poem-container h1 {
+  text-align: center;
+  font-size: 26px;
+  color: #ffb6c1;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.poem {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 10px;
+  line-height: 1.8;
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+.poem::-webkit-scrollbar {
+  width: 6px;
+}
+
+.poem::-webkit-scrollbar-thumb {
+  background: #ff8ba0;
+  border-radius: 10px;
+}
+
+.poem::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.author {
+  text-align: right;
+  margin-top: 20px;
+  font-style: italic;
+  color: #ccc;
+}
+
+@media (max-width: 600px) {
+  .poem-container {
+    margin: 40px 15px;
+    padding: 25px 20px;
+  }
+  .poem-container h1 {
+    font-size: 22px;
+  }
+  .poem {
+    font-size: 15px;
+  }
+}

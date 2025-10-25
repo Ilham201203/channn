@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puisi untuk Chandra</title>
+    <link rel="stylesheet" href="2ujicoba2.css" />
+  </head>
+
+  <body>
+    <!-- ====== SLIDE 1: Tombol aktifkan musik ====== -->
+    <div class="intro-slide" id="introSlide">
+      <h1>Hai, Channn 🌸</h1>
+      <p>Ada sesuatu yang ingin aku tunjukkan padamu...</p>
+      <button id="startBtn">siap yaa...</button>
+    </div>
+
+    <!-- ====== SLIDE 2: Puisi ====== -->
+    <div class="main-slide hidden" id="mainSlide">
+      <div class="heart-container"></div>
+
+      <div class="poem-container">
+        <h1>Aisha Chandra Adjie Zahro</h1>
+        <p class="poem">
+          Aku mengenalmu jauh sebelum aku punya alasan untuk jatuh.<br />
+          Sebelum rasa ini tahu artinya rindu,<br />
+          aku sudah memperhatikanmu<br />
+          dari jauh, dalam diam, tanpa niat apa-apa.<br /><br />
+          Aku tahu kisahmu,<br />
+          tentang dia yang pernah kau cinta,<br />
+          tentang luka yang tak semua orang paham.<br />
+          Aku lihat caramu tersenyum di atas cerita yang berat,<br />
+          dan entah kenapa, hatiku ikut belajar sabar.<br /><br />
+          Awalnya aku cuma ingin tahu,<br />
+          bukan ingin memiliki.<br />
+          Tapi semesta memang suka bercanda<br />
+          lewat satu catatan kecil di Instagram,<br />
+          dan aku mereply nya,<br />
+          dan tanpa sadar, dari situ semuanya mulai berubah.<br /><br />
+          Hari berganti hari,<br />
+          dan entah sejak kapan,<br />
+          aku mulai menunggu notifikasi darimu<br />
+          lebih dari apa pun yang lain.<br />
+          Cinta ini tumbuh, pelan, tapi nyata.<br />
+          Mungkin karena kau cantik, mungkin karena kau baik,<br />
+          atau mungkin karena aku terlalu nyaman<br />
+          setiap kali bicara denganmu.<br /><br />
+          Aku bahagia,<br />
+          karena kau mengizinkan aku mengenalmu lebih dalam.<br />
+          Aku tahu, kita belum sejauh itu,<br />
+          tapi jujur saja<br />
+          you’ve become my favorite person to think about.<br /><br />
+          Kadang aku rindu,<br />
+          meski kita belum sering bertemu.<br />
+          Rindu yang sederhana,<br />
+          yang cuma ingin dengar kabar,<br />
+          atau sekadar melihat senyummu.<br />
+          Lucu ya, hal sesederhana itu bisa bikin aku tenang.<br /><br />
+          Banyak “semoga” yang kusemogakan untukmu:<br />
+          semoga kau terbuka padaku,<br />
+          semoga aku bisa jadi tempat kau pulang bercerita,<br />
+          meski bukan lewat chat, bisa lewat video yang kamu kirim,<br />
+          atau caption random yang kau tulis malam-malam.<br />
+          As long as it’s from you, I’ll listen.<br /><br />
+          Aku ingin tahu banyak hal darimu<br />
+          tentang kehidupanmu,<br />
+          tentang masa kecilmu,<br />
+          atau tentang hal-hal kecil yang kau sembunyikan dari dunia.<br />
+          Aku ingin kau tahu,<br />
+          aku suka mendengar suaramu,<br />
+          lebih dari lagu apa pun di playlist-ku.<br /><br />
+          Dan kalau nanti aku berani lebih jujur lagi,<br />
+          mungkin aku akan bilang,<br />
+          you make my ordinary days feel like poetry.<br />
+          Kau adalah jeda yang menenangkan<br />
+          di tengah hidup yang riuh dan lelah.<br /><br />
+          Aku cuma ingin kau tetap di sisiku<br />
+          bukan karena janji,<br />
+          tapi karena kita sama-sama ingin bertahan,<br />
+          sampai waktu menyerah melihat kita tak saling lepas.<br /><br />
+          Dan nanti,<br />
+          kalau langit benar-benar merestui,<br />
+          aku akan menatapmu sambil tersenyum dan berkata pelan:<br />
+          “See? I told you… love always finds its way.”
+        </p>
+        <p class="author">— Dari Ilham</p>
+      </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="bergemasampaiselamanya" loop muted>
+      <source src="backsong.mp3" type="audio/mpeg" />
+      Browser tidak mendukung audio.
+    </audio>
+
+    <script>
+      // Animasi hati
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 4 + Math.random() * 3 + "s";
+        document.querySelector(".heart-container").appendChild(heart);
+        setTimeout(() => heart.remove(), 7000);
+      }
+
+      // Jalankan animasi hati terus menerus
+      setInterval(createHeart, 400);
+
+      // Kontrol slide
+      const startBtn = document.getElementById("startBtn");
+      const introSlide = document.getElementById("introSlide");
+      const mainSlide = document.getElementById("mainSlide");
+      const music = document.getElementById("bergemasampaiselamanya");
+
+      startBtn.addEventListener("click", () => {
+        music.muted = false;
+        music.play().catch((err) => console.log("Autoplay dicegah:", err));
+
+        // Transisi ke slide puisi
+        introSlide.classList.add("hidden");
+        mainSlide.classList.remove("hidden");
+      });
+    </script>
+  </body>
+</html>
